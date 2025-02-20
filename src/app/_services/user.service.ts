@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { loginresp, menu, menupermission, registerconfirm, resetpassword, updatepassword, usercred, userregister } from '../_model/user.model';
+import { loginresp, menu, menupermission, menus, registerconfirm, resetpassword, roles, updatepassword, updateuser, usercred, userregister, users } from '../_model/user.model';
 import { environment } from '../../environments/environment'; 
 
 
@@ -38,7 +38,6 @@ export class UserService {
   }
 
   Loadmenubyrole(role: string) {
-    debugger
     return this.http.get<menu[]>(`${this.baseUrl}/UserRole/GetAllMenusbyrole?userrole=${role}`);
   }
   
@@ -47,7 +46,6 @@ export class UserService {
   }
 
   Forgetpassword(username: string) {
-    debugger
     return this.http.get(`${this.baseUrl}/User/forgetpassword?username=${username}`)
   }
   
@@ -59,4 +57,30 @@ export class UserService {
     return this.http.get<menupermission>(this.baseUrl + '/UserRole/GetMenupermissionbyrole?userrole='+role+'&menucode=' + menuname)
   }
 
+  Getallusers() {
+    return this.http.get<users[]>(this.baseUrl + '/User/GetAll');
+  }
+
+  GetUserbycode(code:string) {
+    return this.http.get<users>(this.baseUrl + '/User/GetBycode?code='+code);
+  }
+
+  Getallroles() {
+    return this.http.get<roles[]>(this.baseUrl + '/UserRole/GetAllRoles');
+  }
+
+  Updaterole(_data: updateuser) {
+    return this.http.post(this.baseUrl + '/User/updaterole', _data);
+  }
+  Updatestatus(_data: updateuser) {
+    return this.http.post(this.baseUrl + '/User/updatestatus', _data);
+  }
+
+  Getallmenus() {
+    return this.http.get<menus[]>(this.baseUrl + '/UserRole/GetAllMenus');
+  }
+
+  Assignrolepermission(_data:menupermission[]){
+    return this.http.post(this.baseUrl + '/UserRole/assignrolepermission', _data);
+  }
 }

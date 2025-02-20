@@ -18,18 +18,19 @@ export class CustomerService {
   }
 
   Getbycode(code:string) {
-    return this.http.get<customer>(this.baseUrl + '/Customer/Getbycode?code='+code);
+    return this.http.get<customer>(`${this.baseUrl}/Customer/Getbycode?code=${code}`);
   }
 
   Createcustomer(_data: customer) {
-    return this.http.post(this.baseUrl + '/Customer/create', _data);
+    return this.http.post(`${this.baseUrl}/Customer/create`, _data);
   }
 
   Updatecustomer(_data: customer) {
-    return this.http.put(this.baseUrl + '/Customer/Update?code=' + _data.code, _data);
+    debugger
+    return this.http.put(`${this.baseUrl}/Customer/Update?code=${_data.code}`, _data);
   }
 
   Deletecustomer(code: string) {
-    return this.http.delete(this.baseUrl + '/Customer/Remove?code=' + code);
+    return this.http.delete(`${this.baseUrl}/Customer/Remove?code=${code}`);
   }
 }

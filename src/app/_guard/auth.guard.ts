@@ -8,11 +8,31 @@ export const authGuard: CanActivateFn = (route, state) => {
   let toastr = inject(ToastrService)
   let service = inject(UserService)
 
-  if(localStorage.getItem('username') != null){
-    return true;
-  }else{
-    toastr.warning("Unauthorized Access!")
-    return false;
+  let menuname = '';
+
+  if (route.url.length > 0) {
+    menuname = route.url[0].path;
   }
 
+  if (localStorage.getItem('username') != null) {
+    let userrole = localStorage.getItem('userrole') as string;
+    if(menuname!=''){
+      service.Getmenupermission(userrole, menuname).subscribe(item => {
+        if (item.haveview) {
+          return true;
+        } else {
+          toastr.warning('Unauthorized access');
+          router.navigateByUrl('/');
+          return false;
+        }
+      })
+        return true;
+      }else{
+        return true;
+      }
+  } else {
+    toastr.warning('Unauthorized access');
+    router.navigateByUrl('/login');
+    return false;
+  }
 };

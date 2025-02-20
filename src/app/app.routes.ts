@@ -9,6 +9,9 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { ForgetpasswordComponent } from './components/forgetpassword/forgetpassword.component';
 import { authGuard } from './_guard/auth.guard';
 import { UserComponent } from './components/user/user.component';
+import { InvoiceComponent } from './components/invoice/invoice.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { AddcustomerComponent } from './components/addcustomer/addcustomer.component';
 
 export const routes: Routes = [
     {
@@ -36,15 +39,23 @@ export const routes: Routes = [
         component: UpdatepasswordComponent
     },
     {
-        path: 'customer',
-        component: CustomerComponent
-    },
-    {
         path: 'forgetpassword',
         component: ForgetpasswordComponent, canActivate: [authGuard]
     },
     {
         path:'user',
         component: UserComponent, canActivate:[authGuard]
-    }
+    },
+    {
+        path: 'invoice',
+        component: InvoiceComponent
+    },
+    {
+        path: 'reports',
+        component: ReportsComponent
+    },
+    {path:'customer',component:CustomerComponent,canActivate:[authGuard]},
+    {path:'customer/add',component:AddcustomerComponent,canActivate:[authGuard]},
+    {path:'customer/edit/:code',component:AddcustomerComponent,canActivate:[authGuard]},
+    {path:'user',component:UserComponent,canActivate:[authGuard]},
 ];

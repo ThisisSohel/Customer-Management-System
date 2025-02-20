@@ -2,18 +2,18 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { customer } from '../../_model/customer.model';
 import { MatTableDataSource } from '@angular/material/table';
+import { menupermission } from '../../_model/user.model';
 import { ToastrService } from 'ngx-toastr';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MaterialModule } from '../../materialModule';
 import { CustomerService } from '../../_services/customer.service';
 import { UserService } from '../../_services/user.service';
-import { menupermission } from '../../_model/user.model';
 
 @Component({
   selector: 'app-customer',
   standalone: true,
-  imports: [MaterialModule, RouterLink, MatPaginatorModule],
+  imports: [MaterialModule, RouterLink, MatPaginator],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css'
 })

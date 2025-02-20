@@ -23,7 +23,6 @@ export class AppmenuComponent {
 
   ngOnInit(): void {
     let userrole = localStorage.getItem('userrole') as string;
-    debugger
     this.service.Loadmenubyrole(userrole).subscribe(item => {
       this.menulist = item;
     })

@@ -1,0 +1,22 @@
+mat-card {
+    margin: 2%;
+    text-align: left;
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid #ccc;
+}
+.mat-mdc-raised-button{
+    width:auto;
+}
+
+.table-header{
+    background-color: rgb(54, 54, 146);
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.add-customer-btn {
+    float: left;
+    margin-right: 10px; 
+}

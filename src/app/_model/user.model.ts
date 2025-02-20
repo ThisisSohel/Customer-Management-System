@@ -50,3 +50,31 @@ export interface menupermission {
     haveedit: boolean,
     havedelete: boolean,
 }
+
+export interface users {
+    username: string;
+    name: string;
+    email: string;
+    phone: string;
+    isactive: boolean;
+    statusname: string;
+    role: string;
+}
+
+export interface roles {
+    code: string
+    name: string
+    status: boolean
+}
+
+export interface updateuser {
+    username: string;
+    role: string;
+    status:boolean
+}
+
+export interface menus {
+    code: string
+    name: string
+    status: boolean
+}
