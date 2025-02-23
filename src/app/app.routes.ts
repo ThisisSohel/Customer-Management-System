@@ -12,6 +12,7 @@ import { UserComponent } from './components/user/user.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { AddcustomerComponent } from './components/addcustomer/addcustomer.component';
+import { UserroleComponent } from './components/userrole/userrole.component';
 
 export const routes: Routes = [
     {
@@ -58,4 +59,5 @@ export const routes: Routes = [
     {path:'customer/add',component:AddcustomerComponent,canActivate:[authGuard]},
     {path:'customer/edit/:code',component:AddcustomerComponent,canActivate:[authGuard]},
     {path:'user',component:UserComponent,canActivate:[authGuard]},
+    {path:'userrole',component:UserroleComponent,canActivate:[authGuard]}
 ];

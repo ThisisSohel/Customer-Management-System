@@ -47,12 +47,9 @@ export class CustomerComponent implements OnInit {
   }
 
   Setaccess() {
-
     let role = localStorage.getItem('userrole') as string;
     this.userservice.Getmenupermission(role, 'customer').subscribe(item => {
-
       this._permission = item;
-      console.log(this._permission);
     })
   }
 
